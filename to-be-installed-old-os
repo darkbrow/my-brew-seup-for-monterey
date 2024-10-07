@@ -1,0 +1,55 @@
+#!/usr/bin/env zsh
+
+rm -rf ~/.venv
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+# curl -LO https://nightly.link/mpv-player/mpv/workflows/build/master/mpv-macos-12-intel.zip
+
+HOMEBREW_PREFIX=$(brew --prefix)
+
+sudo -i true && sudo xcode-select -s /Applications/Xcode.app/Contents/Developer || exit
+brew install ansiweather
+brew install atomicparsley
+brew install ffmpeg
+brew install cmus
+brew install convmv
+brew install coreutils
+brew install cowsay
+brew install dos2unix
+brew install python-tk@3.12
+$HOMEBREW_PREFIX/bin/python3.12 -m venv --system-site-packages --upgrade-deps ~/.venv
+source ~/.venv/bin/activate
+~/.venv/bin/pip3.12 install bs4 jedi mutagen subliminal termtosvg weasyprint pipdeptree flake8
+deactivate
+brew install ~/Developer/sh_scripts/homebrew-old-formulae/openjdk.rb
+brew install epubcheck
+brew install fortune
+brew install fzf
+brew install gping
+brew install highlight
+brew install hstr
+brew install htop
+brew install m-cli
+brew install media-info
+brew install ncdu && brew uninstall zig z3
+brew install pandoc && brew uninstall ghc ghc@9.8 cabal-install
+brew install sevenzip
+brew install tesseract-lang
+brew install tig
+brew install trash
+brew install tree
+brew install tz
+brew install ugrep
+brew install vifm
+brew install wget
+brew install yt-dlp
+brew install zsh-syntax-highlighting
+brew install gpac
+brew install macvim
+brew install ~/Documents/Developer/sh_scripts/homebrew-old-formulae/w3m.rb
+brew install ~/Documents/Developer/sh_scripts/homebrew-old-formulae/qt.rb
+brew install libqalculate
+brew install ~/Documents/Developer/sh_scripts/homebrew-old-formulae/unrar.rb
+brew install tmux
+sudo ln -sfn $HOMEBREW_PREFIX/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
